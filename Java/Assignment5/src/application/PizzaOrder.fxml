@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="241.0" prefWidth="600.0" spacing="5.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PizzaOrderController">
+	<children> 
+		<HBox alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="200.0">
+			<Label alignment="TOP_LEFT" prefHeight="28.0" prefWidth="570.0" styleClass="labelTitle" text="Choose Your Pizza" />
+		</HBox>
+		<HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="200.0" spacing="5.0">
+			<Label prefWidth="110" styleClass="labels" text="Size" />
+			<Label prefWidth="110" styleClass="labels" text="Cheese" />
+			<Label prefWidth="110" styleClass="labels" text="Mushrooms" />
+			<Label prefWidth="110" styleClass="labels" text="Pepperoni" />
+			<Label prefWidth="110" styleClass="labels" text="Quantity" />
+		</HBox>
+		<HBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="200.0" spacing="5.0">
+			<ComboBox fx:id="pSize"  onAction="#configPizza" prefWidth="110.0" />
+			<ComboBox fx:id="pCheese" onAction="#configPizza" prefWidth="110.0" />
+			<ComboBox fx:id="pMushrooms" onAction="#configPizza" prefWidth="110.0" />
+			<ComboBox fx:id="pPepperoni" onAction="#configPizza" prefWidth="110.0" />
+			<ComboBox fx:id="pQuantity" onAction="#configPizza" prefWidth="110.0" />
+		</HBox>
+		<HBox alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="200.0" spacing="5.0">
+			<Label prefHeight="26.0" prefWidth="78.0" styleClass="labels" text="Unit Cost:" />
+			<TextField fx:id="unitCost" editable="false" opacity="0.7" prefHeight="32.0" prefWidth="77.0" />
+			<Label prefHeight="26.0" prefWidth="87.0" styleClass="labels" text="Total Cost:" />
+			<TextField fx:id="totalCost" editable="false" opacity="0.7" prefHeight="32.0" prefWidth="84.0" />
+		</HBox>
+		<HBox alignment="TOP_RIGHT" prefHeight="80.0" prefWidth="200.0" spacing="20.0">
+			<children>
+				<Button fx:id="addOrder" mnemonicParsing="false" onAction="#addOrder" text="Add Order" />
+			</children>
+		</HBox>
+		<HBox alignment="BOTTOM_RIGHT" prefHeight="30.0" prefWidth="570.0">
+			<Label prefHeight="28.0" prefWidth="570.0" styleClass="labels" text="Result:" />
+		</HBox>
+		<HBox alignment="TOP_RIGHT" prefHeight="170.0" prefWidth="570.0">
+			<TextArea fx:id="resultText" editable="false" opacity="0.8" prefHeight="170.0" prefWidth="570.0" />
+		</HBox>
+	</children>
+</VBox>
