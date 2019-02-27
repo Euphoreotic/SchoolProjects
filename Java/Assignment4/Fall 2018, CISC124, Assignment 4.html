@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0075)http://research.cs.queensu.ca/home/cisc124w/Fall2018/Assn4/Assignment4.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    <meta name="generator" content="Price Media Cascade DTP V4">
+
+    <title>Fall 2018, CISC124, Assignment 4</title>
+
+    <style type="text/css">
+        <!--
+
+        @import "../style.css";
+
+        -->
+    </style>
+
+</head>
+
+<body>
+
+    <div class="CISC212">
+        <img height="44" width="238" src="./Fall 2018, CISC124, Assignment 4_files/cisc124.jpg" border="0" alt="">
+    </div>
+
+    <div class="Header">
+        &nbsp;&nbsp;&nbsp;Assignment 4 - Inheritance
+        <hr width="100%">
+    </div>
+
+    <div class="Topics">
+
+        <center>
+            <h4>Due by onQ Submission Before 7pm, <img src="./Fall 2018, CISC124, Assignment 4_files/new.gif">Monday Nov. 12</h4>
+        </center>
+
+        <div class="WeekLabels">
+            &nbsp;&nbsp;Assignment Statement
+        </div>
+        <p>
+			The <a href="https://www.fastenal.com/products/fasteners?r=~|categoryl1:%22600000%20Fasteners%22|~">Fastenal web site</a> provides a very nice illustration of a natural hierarchy. You will use this representation to help you build a code model of a small portion of this hierarchy for Fasteners.  Your portion of the hierarchy will need to hold descriptions of Carriage Bolts, Wood Screws, Wing Nuts and Common Nails only:
+		</p><p>
+			A Carriage Bolt is described by the following fields: <img src="./Fall 2018, CISC124, Assignment 4_files/CarriageBolt.jpg" align="right">
+			</p><ul>
+				<li>Diameter / Thread Size</li>
+				<li>Length</li>
+				<li>Material</li>
+				<li>Finish</li>
+				<li>Unit Price</li>
+				<li>Number per Unit</li>
+			</ul>
+			These fields would describe any Bolt, but CarriageBolt should extend Bolt.
+		<p>
+			A Wood Screw is described by the following fields: <img src="./Fall 2018, CISC124, Assignment 4_files/WoodScrew.jpg" align="right">
+			</p><ul>
+				<li>Diameter / Thread Size</li>
+				<li>Length</li>
+				<li>Material</li>
+				<li>Finish</li>
+				<li>Head</li>
+				<li>Drive</li>
+				<li>Point</li>
+				<li>Unit Price</li>
+				<li>Number per Unit</li>
+			</ul>
+			Point is unique to Wood Screws, but other Screws would contain all other fields.
+		<p>
+			A Wing Nut is described by the following fields: <img src="./Fall 2018, CISC124, Assignment 4_files/WingNut.jpg" align="right">
+			</p><ul>
+				<li>Diameter / Thread Size</li>
+				<li>Material</li>
+				<li>Finish</li>
+				<li>Unit Price</li>
+				<li>Number per Unit</li>
+			</ul>
+<!--		<p>
+			A Flat Washer is described by the following fields: <img src="FlatWasher.jpg" align="right">
+			<ul>
+				<li>Outer Diameter</li>
+				<li>Inner Diameter</li>
+				<li>Thickness</li>
+				<li>Material</li>
+				<li>Finish</li>
+				<li>Unit Price</li>
+				<li>Number per Unit</li>
+			</ul>
+-->
+		<p>
+			A Common Nail, or any Nail for that matter, is described by the following fields: <img src="./Fall 2018, CISC124, Assignment 4_files/Nail.jpg" align="right">
+			</p><ul>
+				<li>Material</li>
+				<li>Finish</li>
+				<li>Size</li>
+				<li>Length</li>
+				<li>Gauge</li>
+				<li>Unit Price</li>
+				<li>Number per Unit</li>
+			</ul>
+		<p>
+			Not all fields have been included for these fasteners - Manufacturer, Grade, Standard and Thread Type have been left out. 
+		</p><p>
+            </p><div class="WeekLabels">
+                &nbsp;&nbsp;Restrictions on Field Values
+            </div>
+		<p>
+			Each of the fields listed above are restricted to certain values. The inches symbol, ", can be omitted from the attribute values. Some further simplifications have been applied to those shown on the Fastenal site.
+			</p><ul>
+			
+				<li>Materials for all Fasteners: Brass, Stainless Steel, Steel.</li>
+				<li>Finishes for Steel only: Chrome, Hot Dipped Galvanized, Plain, Yellow Zinc, Zinc.</li>
+				<li>Finish for Brass and Stainless Steel Materials: Plain.</li>
+				<li>Additional Finishes for Steel Screws only: Black Phosphate, ACQ 1000 Hour, Lubricated.</li>
+				<li>Diameter/Thread Size for any threaded Fastener: #8-13, #8-15, #8-32, #10-13, #10-24, #10-32, 1/4"-20, 5/16"-18, 3/8"-16, 7/16"-14, 1/2"-13, 5/8"-11, 3/4"-10.</li>
+				<li>Lengths for Bolts and Screws: 1/2" to 6" in units of 1/4", 6" to 11" in units of 1/2", 11 to 20" in units of 1".</li>
+				<li>Head for all Screws: Bugle, Flat, Oval, Pan, Round.</li>
+				<li>Drive for all Screws: 6-Lobe, Philips, Slotted, Square</li>
+				<li>Point for Wood Screws: Double Cut, Sharp, Type 17</li>
+<!--
+				<li>Outer Diameter: from 0.187" to 2.010".</li>
+				<li>Inner Diameter: (must be less than outer diameter by at least 0.1"), from 0.068" to 0.817".</li>
+				<li>Thickness: 0.015" to 0.109".</li>
+				<li>Additional Materials for Flat Washers only: Aluminium, Copper, Nylon.</li>
+-->
+				<li>Material for all Nails: Steel.</li>
+				<li>Finishes for Common Nails: Bright, Hot Dipped Galvanized.</li>
+				<li>Sizes for Common Nails: 6D, 8D, 10D, 12D, 16D, 60D.</li>
+				<li>Lengths for Common Nails: 2, 2.5, 3, 3.25, 3.5, 6 (in inches).</li>
+				<li>Gauge for Common Nails: 2, 8, 9, 10.25, 11.5</li>
+				
+			</ul>
+		<p>
+			"Number per Unit" must be at least 1, but could be as high as 10,000.  This number will always be one or if higher, evenly divisible by 5. The Unit Price, in dollars, must be greater than zero and is the price per unit, where a unit could be anywhere from 1 to 10,000 fasteners.
+		</p><p>
+            </p><div class="WeekLabels">
+                &nbsp;&nbsp;Details
+            </div>
+		<p>
+			Here are some more instructions and restrictions on what you must do:
+			</p><ul>
+				<li>Use this JUnit, version 5.1, testing class to put your hierarchy through its paces: <a href="http://research.cs.queensu.ca/home/cisc124w/Fall2018/Assn4/TestHierarchy.java">TestHierarchy.java</a>.  You may add tests to this class, but cannot remove any.</li>
+				<li>After passing all unit tests, run the "order system" class: <a href="http://research.cs.queensu.ca/home/cisc124w/Fall2018/Assn4/FastenerOrderSystem.java">FastenerOrderSystem.java</a>. You cannot change the code in this class, and it will provide more information on how your classes must behave.</li>
+				<li>Try to allow your hierarchy to be <u>extensible</u>. In other words you should try not to build any structure that would prevent the addition of other types of Fastener objects without requiring modifications to the existing structure. Once you have built your hierarchy, pick a few Fastener types that are not used in this model, like Washers for example, and think of how you would add them into your structure by just adding more classes and not changing anything in the existing structure.</li>
+				<li>Minimize or eliminate <u>attribute re-declaration</u>.</li>
+				<li>Minimize the <u>duplication</u> of code in your hierarchy - choose where the code goes to avoid as much repetition as possible.</li>
+				<li>Every attribute in an instance of one of your Fastener objects must be properly <u>initialized</u>, that is to say each must have a value which cannot be null or zero.</li>
+				<li>You will notice that the legal values for some attributes depend on the object type. And legal values for Finish depend on Material. Otherwise you can assume that fields are independent.</li>
+				<li>Your constructors must throw an exception, called "IllegalFastener" with an appropriate error message if an attempt is made to set any attribute to an illegal value. You must write this exception class.</li>
+				<li><u>You cannot use protected access</u> - all class methods must be declared private or public and non-final attributes must be private.</li>
+				<li>Remember that methods that do not use attributes can be declared static.</li>
+				<li>Write an accessor method called getOrderCost() in the appropriate class(es) that accepts the number of units of any fastener as an argument and returns the total cost of such an order.</li>
+				<li>You will need toString methods. String representations of fastener objects should contain all field values for that fastener. <a href="http://research.cs.queensu.ca/home/cisc124w/Fall2018/Assn4/JUnitConsoleOutput.txt">Here</a> is a sample of what these strings could look like - this is the console output of the JUnit testing program.</li>
+				<li>Write just those methods you need.  For example, you cannot write any accessors other than getOrderCost(). All classes are immutable, so you don't need public mutators. Neither do you need compareTo, equals or clone methods.</li>
+				<li>It only makes sense to allow instantiation of your concrete classes - the ones that represent actual fasteners. Figure out a way to prevent the instantiation of your base and intermediate classes.</li>
+			
+			</ul>
+		<p>
+            </p><div class="WeekLabels">
+                &nbsp;&nbsp;Documentation
+            </div>
+        <p>
+            You <b>do not</b> have to write javadoc comments for your classes. You may use a few normal comments to explain code where needed.
+        </p><p>
+            </p><div class="WeekLabels">
+                &nbsp;&nbsp;Submission and Grading Scheme
+            </div>
+        <p>
+            Please combine all of your *.java files into a single archive file (*.zip or *.rar, for example). Name the file as in "Assn4_NetID.zip" - replacing "NetID" with your ID. Upload this single file into onQ. Do <b><u>not</u></b> include your *.class files.  Do not include either of the supplied files, your grader will use their own testing classes.
+        </p><p>
+           Four marks out of 20 will be allotted to documentation and coding style. Ten marks are allotted for the efficiency and proper design of your hierarchy. The remaining six marks are given for the proper operation and correct results of your code as indicated by passing all the JUnit tests and by the proper operation of the "order system" class.
+        </p><p>
+            </p><div class="HomeButton">
+                <a href="http://research.cs.queensu.ca/home/cisc124w"><img height="25" width="69" src="./Fall 2018, CISC124, Assignment 4_files/bluehomebutton.jpg" border="0" alt="Click here to return to the home page"></a>
+            </div>
+            <br>
+            <div class="Footer">
+                <i>Last modified:&nbsp;</i>
+                <script type="text/javascript">
+
+                    var modifieddate = document.lastModified
+
+                    document.write(modifieddate)
+
+                </script>11/01/2018 15:48:50
+            </div>
+
+    </div>
+
+
+
+
+
+</body></html>
