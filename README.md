@@ -1,2 +1,2 @@
 # SchoolProjects
-my projects and assignments when studying in Queens
+My assignments from my second year of computer science
