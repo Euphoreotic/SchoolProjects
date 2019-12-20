@@ -2,4 +2,4 @@ Assignment 4 implements a heirarchy of different types of fasterners to demonstr
 
 Assignment 5 implements a pizza ordering system using JavaFX to separate the GUI from the application logic.
 
-![Homepage](https://github.com/Euphoreotic/SchoolProjects/blob/master/images/pizzaOrderGui.PNG)
+![Homepage](https://github.com/Euphoreotic/SchoolProjects/blob/master/Java/images/pizzaOrderGui.PNG)
